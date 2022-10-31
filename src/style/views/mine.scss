@@ -1,0 +1,95 @@
+@import '~@/style/mixins.scss';
+@import '~@/style/variables.scss';
+.mine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: .49rem;
+  background: $light-color;
+  overflow-y: auto;
+  &__header {
+    position: relative;
+    &__arc {
+      width: 100%;
+      height: 2.5rem;
+      margin: 0px auto;
+      overflow: hidden;
+    }
+    &__arcbg {
+      width: 150%;
+      position: relative;
+      height: 100%;
+      background-image: linear-gradient(239deg, #3A6FF3 20%, #50C7FB 80%);
+      border-radius: 0 0 200rem 200rem;
+      left: -25%;
+    }
+  }
+  &__content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    &__info {
+      margin: 0.9rem .18rem 0;
+      height: 2rem;
+      background: #FFF;
+      border-radius: .08rem;
+      box-shadow: 0 .08rem .16rem 0 rgba(0,0,0,0.08);
+      z-index: 9;
+    }
+    &__user {
+      padding-top: .59rem;
+      font-size: .24rem;
+      color: #262628;
+      text-align: center;
+      line-height: .36rem;
+    }
+    &__id {
+      margin-top: .04rem;
+      font-size: .14rem;
+      color: #C1C0C9;
+      text-align: center;
+    }
+    &__avatar {
+      position: absolute;
+      left: 50%;
+      top: .4rem;
+      transform: translateX(-50%);
+      width: .94rem;
+      height: .94rem;
+      border-radius: 50%;
+    }
+    .address__item {
+      @include flex-align-center;
+      margin: .18rem;
+      padding: 0 .16rem;
+      height: .48rem;
+      border-radius: .08rem;
+      background: $light-color;
+      box-shadow: 0 .08rem .16rem 0 rgba(0,0,0,0.08);
+      &__title {
+        font-size: .14rem;
+        color: #262626;
+      }
+      &__icon {
+        margin-left: auto;
+        font-size: .12rem;
+        font-weight: bold;
+        color: #C2C4CA;
+      }
+    }
+  }
+  &__logout {
+    @include flex-center;
+    position: absolute;
+    bottom: .4rem;
+    left: .18rem;
+    width: calc(100% - .36rem);
+    height: .48rem;
+    background: $primary-btn-color;
+    text-align: center;
+    border-radius: .04rem;
+    color: $light-color;
+  }
+}

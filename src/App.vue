@@ -1,30 +1,41 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <router-view />
+    <docker v-if="dockerShow" />
   </div>
-  <router-view/>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import { useRoute } from 'vue-router'
+import { computed, defineAsyncComponent } from 'vue'
+
+// 坞展示逻辑
+const dockerShowEffect = () => {
+  const dockerShow = computed(() => {
+    const { name } = useRoute()
+    const mainPageNames = ['Home', 'Cart', 'Order', 'Mine']
+    return mainPageNames.includes(name)
+  })
+  return { dockerShow }
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  name: 'App',
+  components: {
+    Docker: defineAsyncComponent(() => import('@/components/Docker')) // vue3使用箭头函数导入异步组件
+  },
+  setup () {
+    const { dockerShow } = dockerShowEffect()
+    return { dockerShow }
   }
 }
+</script>
+
+<style lang="scss" scoped>
+  .app {
+    padding-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+    padding-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
+        margin-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS < 11.2 */
+    margin-bottom: env(safe-area-inset-bottom); /* 兼容 iOS >= 11.2 */
+  }
 </style>

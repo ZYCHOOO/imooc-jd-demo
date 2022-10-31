@@ -1,0 +1,153 @@
+@import '~@/style/mixins.scss';
+@import '~@/style/variables.scss';
+.mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, .5);
+}
+.shop__cart {
+  @include flex-align-center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: .49rem;
+  width: 100%;
+  background: $light-color;
+  border-top: .01rem solid $main-border-color;
+  z-index: 9;
+  &__icon {
+    position: relative;
+    @include flex-align-center;
+  }
+  &__img {
+    margin-left: .24rem;
+    width: .28rem;
+    height: .26rem;
+  }
+  &__tag {
+    @include flex-center;
+    position: absolute;
+    top: -.1rem;
+    right: -.1rem;
+    min-width: .2rem;
+    height: .2rem;
+    border-radius: .1rem;
+    background: $highlight-text-color;
+    color: $light-color;
+    transform: scale(.5);
+  }
+  &__price {
+    @include flex-align-center;
+    margin-left: .32rem;
+    font-size: .12rem;
+    color: $main-text-color;
+  }
+  &__yen {
+    font-size: .18rem;
+    color: $highlight-text-color;
+  }
+  &__btn {
+    @include flex-center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: .98rem;
+    height: .5rem;
+    font-size: .14rem;
+    background: $primary-btn-color;
+    color: $light-color;
+    &--disabled {
+      pointer-events: none;
+      opacity: .6;
+    }
+  }
+  .cart__products {
+    position: fixed;
+    bottom: .5rem;
+    width: 100%;
+    background: $light-color;
+    &__header {
+      @include flex-align-center;
+      height: .52rem;
+      padding: 0 .18rem;
+      background: $light-color;
+      border-bottom: .01rem solid $main-border-color;
+      .check__all span, .clear__cart {
+        font-size: .14rem;
+        color: $main-text-color;
+      }
+      .check__all {
+        @include flex-align-center;
+      }
+      .clear__cart {
+        margin-left: auto;
+      }
+    }
+  }
+  .cart__product {
+    @include flex-align-center;
+    margin: .08rem .184rem .08rem .18rem;
+    position: relative;
+    &__check {
+      margin-right: .08rem;
+      font-size: .19rem;
+      color: $medium-text-color;
+      &--checked {
+        color: $primary-btn-color;
+      }
+    }
+    &__img {
+      margin: 0 .16rem 0 .1rem;
+      width: .46rem;
+      height: .46rem;
+    }
+    &__title {
+      line-height: .2rem;
+      font-size: .14rem;
+      font-family: PingFangSC-Medium;
+      color: $main-text-color;
+    }
+    &__price {
+      margin-top: .06rem;
+      line-height: .2rem;
+      font-size: .14rem;
+      color: $highlight-text-color;
+    }
+    &__yen {
+      font-size: .1rem;
+    }
+    &__origin {
+      margin-left: .06rem;
+      font-size: .1rem;
+      color: $light-text-color;
+      text-decoration: line-through;
+    }
+    .product__number {
+      position: absolute;
+      right: 0;
+      bottom: .12rem;
+      &__minus, &__plus {
+        display: inline-block;
+        width: .2rem;
+        height: .2rem;
+        border-radius: 50%;
+        font-size: .2rem;
+        line-height: .16rem;
+        text-align: center;
+      }
+      &__minus {
+        border: .01rem solid $medium-text-color;
+        margin-right: .05rem;
+      }
+      &__plus {
+        margin-left: .05rem;
+        background: $primary-btn-color;
+        color: $light-color;
+      }
+    }
+  }
+}
