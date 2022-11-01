@@ -5,8 +5,6 @@ import { useStore } from 'vuex'
 export const commonCartEffect = (shopId) => {
   const store = useStore()
   const { cartList } = store.state.cartModule
-  console.log(cartList, '32131231312')
-  console.log(store.getters.cartList, '12312313132')
   const changeCartItemInfo = (shopId, productId, productInfo, num) => {
     store.commit('cartModule/changeCartItemInfo', { shopId, productId, productInfo, num })
   }
