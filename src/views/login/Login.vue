@@ -99,8 +99,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '~@/style/mixins.scss';
-  @import '~@/style/variables.scss';
   .wrapper {
     position: absolute;
     left: 0;
