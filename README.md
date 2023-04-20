@@ -15,7 +15,7 @@
 
 ### 总结
 
-通过该项目学习了 vue3 新特性，如`Composition Api``setup`等
+通过该项目学习了 vue3 新特性，如`Composition Api` `setup`等
 
 ### 项目运行
 
